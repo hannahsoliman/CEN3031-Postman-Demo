@@ -7,15 +7,15 @@ module.exports.init = () => {
   //initialize app
   const app = express();
 
-  //morgan used for logging HTTP requests to the console
-  app.use(morgan("dev"));
+    //morgan - module for logging HTTP requests to the console - dev format - simple tokens
+    app.use(morgan("dev"));
 
-  //bodyParser middleware used for resolving the req and res body objects (urlEncoded and json formats)
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(bodyParser.json());
+    //bodyParser - module for getting body of request object - of specified type
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
 
-  //add routers for http://localhost:8000/api/
-  app.use("/api/", simpleRoutes);
+    //additions to routes http://localhost:8000/api/ - if has /api, then direct to simpleRoutes
+    app.use("/api/", simpleRoutes);
 
   return app;
 };
